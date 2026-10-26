@@ -3,166 +3,165 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prospecting Tracker PRO - $125 Lifetime Worldwide</title>
+  <title>Prospecting Tracker PRO - $125 Lifetime</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
     :root{--gold:#D4A843;--dark:#121212;--card:#1e1e1e}
-    *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
+    *{box-sizing:border-box;margin:0;padding:0;font-family:Arial}
     body{background:var(--dark);color:white}
-    header{
-      background:black;
-      border-bottom:2px solid var(--gold);
-      padding:12px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center
-    }
-    header h1{color:var(--gold);font-size:18px;letter-spacing:1px}
-    .badge{
-      background:var(--gold);
-      color:black;
-      padding:4px 8px;
-      border-radius:12px;
-      font-size:10px;
-      font-weight:bold
-    }
-    .offline{
-      background:#222;
-      border:1px solid var(--gold);
-      margin:10px;
-      padding:10px;
-      border-radius:8px;
-      color:var(--gold);
-      font-size:12px;
-      text-align:center
-    }
-    #map{
-      height:380px;
-      width:100%;
-      border-top:2px solid var(--gold);
-      border-bottom:2px solid var(--gold)
-    }
-    .controls{
-      padding:12px;
-      background:var(--card);
-      margin:10px;
-      border-radius:10px;
-      border:1px solid #333
-    }
-    .controls h3{
-      color:var(--gold);
-      font-size:12px;
-      margin-bottom:8px
-    }
-    select,input,textarea,button{
-      width:100%;
-      padding:10px;
-      margin:6px 0;
-      border-radius:6px;
-      border:1px solid #444;
-      background:#111;
-      color:white
-    }
-    button{
-      background:var(--gold);
-      color:black;
-      font-weight:bold;
-      border:none;
-      cursor:pointer;
-      font-size:14px
-    }
-    button:active{transform:scale(0.98)}
-    .log-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr 1fr;
-      gap:6px;
-      padding:10px
-    }
-    .rock-card{
-      background:var(--card);
-      border:1px solid #333;
-      border-radius:6px;
-      padding:6px;
-      font-size:10px
-    }
-    .rock-card img{
-      width:100%;
-      height:70px;
-      object-fit:cover;
-      border-radius:4px
-    }
-    .stats{
-      display:flex;
-      justify-content:space-around;
-      background:var(--card);
-      margin:10px;
-      padding:10px;
-      border-radius:8px;
-      border:1px solid var(--gold);
-      font-size:11px
-    }
-    .buy{
-      margin:20px;
-      background:linear-gradient(90deg,var(--gold),#a87d1f);
-      color:black;
-      padding:18px;
-      text-align:center;
-      border-radius:12px;
-      font-weight:bold
-    }
-    .buy a{
-      color:black;
-      background:white;
-      padding:10px 20px;
-      border-radius:25px;
-      text-decoration:none;
-      display:inline-block;
-      margin-top:10px;
-      font-size:16px;
-    }
-    .treasure-box{
-      background:#2a2210;
-      border:1px dashed var(--gold);
-      padding:8px;
-      border-radius:8px;
-      margin:6px 0;
-      font-size:11px;
-      color:#D4A843;
-    }
+    header{background:black;border-bottom:3px solid var(--gold);padding:12px;display:flex;justify-content:space-between;align-items:center}
+    header h1{color:var(--gold);font-size:18px}
+    .badge{background:var(--gold);color:black;padding:5px 10px;border-radius:15px;font-size:11px;font-weight:bold}
+    .offline{background:#222;border:1px solid var(--gold);margin:10px;padding:10px;border-radius:8px;color:var(--gold);font-size:12px;text-align:center}
+    #map{height:420px;width:100%;background:#333;border-top:3px solid var(--gold);border-bottom:3px solid var(--gold);display:block !important}
+    .controls{padding:12px;background:var(--card);margin:10px;border-radius:10px;border:1px solid #333}
+    .controls h3{color:var(--gold);font-size:12px;margin-bottom:8px}
+    select,input,textarea,button{width:100%;padding:11px;margin:6px 0;border-radius:6px;border:1px solid #444;background:#111;color:white}
+    button{background:var(--gold);color:black;font-weight:bold;border:none;font-size:14px}
+    .log-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;padding:10px}
+    .rock-card{background:var(--card);border:1px solid #333;border-radius:6px;padding:6px;font-size:10px}
+    .rock-card img{width:100%;height:70px;object-fit:cover;border-radius:4px}
+    .stats{display:flex;justify-content:space-around;background:var(--card);margin:10px;padding:10px;border-radius:8px;border:1px solid var(--gold);font-size:11px}
+    .buy{margin:20px;background:linear-gradient(90deg,var(--gold),#a87d1f);color:black;padding:18px;text-align:center;border-radius:12px;font-weight:bold}
+    .buy a{background:black;color:var(--gold);padding:12px 22px;border-radius:25px;text-decoration:none;display:inline-block;margin-top:10px;font-size:16px}
+    .treasure-box{background:#2a2210;border:1px dashed var(--gold);padding:8px;border-radius:8px;margin:6px 0;font-size:11px;color:#D4A843}
   </style>
 </head>
 <body>
-
-<header>
-  <h1>⛏️ PROSPECTING TRACKER PRO</h1>
-  <span class="badge">WORLDWIDE $125</span>
-</header>
-
-<div class="offline">
-  ⚡ OFFLINE MODE • Works Worldwide: USA • Australia • SA • UK • No Signal Needed<br>
-  🪙 COIN + METALS + BURIED TREASURE MODE ACTIVE • GPS Active
-</div>
-
+<header><h1>⛏️ PROSPECTING TRACKER PRO</h1><span class="badge">WORLDWIDE $125</span></header>
+<div class="offline">⚡ OFFLINE MODE • Works Worldwide: USA • Australia • SA • UK • No Signal Needed<br>🪙 COIN + METALS + BURIED TREASURE MODE ACTIVE • GPS Active</div>
 <div id="map"></div>
-
 <div class="controls">
   <h3>➕ NEW ENTRY - GOLD • DIAMONDS • COINS • METALS • BURIED TREASURE</h3>
-  
   <select id="category">
-    <option value="treasure">🏴‍☠️ BURIED TREASURE - Old History / Hoard / Cache</option>
-    <option value="coin">🪙 COINS - Old Coins / Silver / Gold Coins / Colonial</option>
-    <option value="metal">🔩 METALS - Copper / Silver / Iron / Relics</option>
-    <option value="gold">🥇 GOLD - Nugget / Alluvial / Vein</option>
-    <option value="diamond">💎 DIAMONDS - Kimberlite / Alluvial</option>
-    <option value="relic">⚔️ RELIC - War / Farm / Old House Site</option>
-    <option value="gem">💍 GEMS - Garnet / Emerald / Ruby</option>
-    <option value="meteorite">☄️ METEORITE - Iron / Stony</option>
+    <option>🏴‍☠️ BURIED TREASURE - Old History / Hoard / Cache</option>
+    <option>🪙 COINS - Old Coins / Silver / Gold Coins / Colonial</option>
+    <option>🔩 METALS - Copper / Silver / Iron / Relics</option>
+    <option>🥇 GOLD - Nugget / Vein / Alluvial</option>
+    <option>💎 DIAMONDS - Kimberlite / Alluvial</option>
+    <option>⚔️ RELIC - War / Farm / Old House Site</option>
+    <option>💍 GEMS - Garnet / Emerald / Ruby</option>
+    <option>☄️ METEORITE - Iron / Stony</option>
   </select>
-
   <select id="soil">
     <option>Old House Foundation - Treasure Hoard</option>
     <option>Farm Field - Coins / Relics</option>
     <option>Beach Sand - Shipwreck Coins</option>
     <option>River Crossing - Lost Coins</option>
-    <option>Old Church / Mission
+    <option>Old Church / Mission Site</option>
+    <option>War Site / Battlefield</option>
+    <option>Abandoned Mine / Shaft</option>
+    <option>Sandy Loam - Karoo Coins</option>
+    <option>Red Soil - Indicator</option>
+    <option>Clay - Coin Hoard / Pot</option>
+    <option>Calcrete - Buried Cache</option>
+    <option>River Gravel - Gold / Diamond</option>
+    <option>Kimberlite Pipe Area - Diamond</option>
+    <option>Quartz Vein - Gold</option>
+    <option>Black Sand - Gold Indicator</option>
+  </select>
+  <select id="status">
+    <option value="confirmed">✅ CONFIRMED Find</option>
+    <option value="possible">⚠️ POSSIBLE</option>
+    <option value="high">🔴 HIGH PRIORITY</option>
+    <option value="coin">🪙 COIN / TREASURE</option>
+    <option value="metal">🔩 METAL SIGNAL</option>
+    <option value="treasure">🏴‍☠️ BURIED TREASURE CACHE!</option>
+  </select>
+  <select id="metalDetector">
+    <option>Detector: No Signal</option>
+    <option>Detector: Weak - 20%</option>
+    <option>Detector: Medium - 50%</option>
+    <option>Detector: Strong - 80%</option>
+    <option>Detector: MAX - 99% - DIG!</option>
+  </select>
+  <input type="text" id="rockname" placeholder="e.g. 1890 Silver Shilling, Gold Nugget 5g, Copper Coin Hoard">
+  <div class="treasure-box">🏴‍☠️ BURIED TREASURE: Old maps, farm history, depth? Pot / chest / cloth?<br>🪙 COIN: Year? Type? How deep? Silver / Copper / Gold?<br>🔩 METAL: What metal? Detector VDI? Relic or scrap?</div>
+  <input type="file" id="photo" accept="image/*">
+  <textarea id="notes" placeholder="Notes: Old history? Whose farm? Year buried? Depth? Detector reading? Near old oak tree?"></textarea>
+  <button onclick="saveEntry()">+ SAVE ENTRY - GPS + PHOTO + TREASURE</button>
+</div>
+<div class="stats"><span>● Confirmed: <b id="cCount">0</b></span><span>● Possible: <b id="pCount">0</b></span><span>● High: <b id="hCount">0</b></span><span>● Coins: <b id="coinCount">0</b></span></div>
+<div class="controls"><h3>📸 PHOTO LOG - ROCKS • COINS • METALS • TREASURE</h3><div class="log-grid" id="logGrid"></div></div>
+<div class="buy">PRO VERSION - $125 ONCE-OFF WORLDWIDE<br><span style="font-size:12px">Lifetime • Works offline in bush • Gold • Diamonds • Coins • Metals • Treasure</span><br><br><a href="https://payhip.com/b/YC9Np">🔒 BUY NOW $125 → payhip.com/b/YC9Np</a><br><span style="font-size:10px;display:block;margin-top:8px;font-weight:normal">Instant Access • Coin Hunting • Metal Detecting • Treasure Hunting</span></div>
+<script>
+// FIX BLANK MAP - Force load
+document.addEventListener('DOMContentLoaded', function(){
+  let map = L.map('map', { zoomControl: true }).setView([-26.2041, 28.0473], 5);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap'
+  }).addTo(map);
+
+  // Force map to show - fix black screen bug
+  setTimeout(()=>{ map.invalidateSize(); }, 500);
+  setTimeout(()=>{ map.invalidateSize(); }, 1500);
+  setTimeout(()=>{ map.invalidateSize(); }, 3000);
+
+  if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(p=>{
+      let lat=p.coords.latitude, lng=p.coords.longitude;
+      map.setView([lat,lng],14);
+      L.marker([lat,lng]).addTo(map).bindPopup("📍 YOU HERE • "+lat.toFixed(4)+","+lng.toFixed(4)).openPopup();
+      setTimeout(()=>{ map.invalidateSize(); }, 200);
+    });
+  }
+
+  let entries = JSON.parse(localStorage.getItem('prospectEntries')||'[]');
+  window.render = function(){
+    document.getElementById('logGrid').innerHTML='';
+    let c=0,p=0,h=0,coin=0;
+    entries.forEach((e)=>{
+      if(e.status==='confirmed')c++; if(e.status==='possible')p++; if(e.status==='high')h++;
+      if(e.status==='coin' || e.category && e.category.includes('COIN') || e.category && e.category.includes('TREASURE'))coin++;
+      let div=document.createElement('div'); div.className='rock-card';
+      div.innerHTML=`<img src="${e.img||'https://via.placeholder.com/100x70?text=NO+PHOTO'}"><br><b>${e.name}</b><br><small>${e.category||''}</small><br><small>${e.soil}</small><br><small>${e.date}</small>`;
+      document.getElementById('logGrid').appendChild(div);
+      if(e.lat){
+        let color = e.status==='high'?'#e74c3c': (e.status==='coin'?'#D4A843':'#2ecc71');
+        if(e.category && e.category.includes('TREASURE')) color='#FFD700';
+        L.marker([e.lat,e.lng],{icon: L.divIcon({html:`<div style="background:${color};width:14px;height:14px;border-radius:50%;border:2px solid white"></div>`})}).addTo(map).bindPopup(`${e.name}<br>${e.category}`);
+      }
+    });
+    document.getElementById('cCount').textContent=c; 
+    document.getElementById('pCount').textContent=p; 
+    document.getElementById('hCount').textContent=h;
+    document.getElementById('coinCount').textContent=coin;
+  }
+
+  window.saveEntry = function(){
+    let category=document.getElementById('category').value;
+    let soil=document.getElementById('soil').value; 
+    let status=document.getElementById('status').value;
+    let detector=document.getElementById('metalDetector').value;
+    let name=document.getElementById('rockname').value||'Find #'+(entries.length+1);
+    let file=document.getElementById('photo').files[0]; 
+    let notes=document.getElementById('notes').value;
+    navigator.geolocation.getCurrentPosition(pos=>{
+      let lat=pos.coords.latitude, lng=pos.coords.longitude;
+      let base={category,soil,status,detector,name,notes,lat,lng,date:new Date().toLocaleDateString()};
+      if(file){
+        let r=new FileReader(); 
+        r.onload=e=>{
+          base.img=e.target.result;
+          entries.push(base); 
+          localStorage.setItem('prospectEntries',JSON.stringify(entries)); 
+          render(); 
+          alert('✅ SAVED! '+category+'\nGPS: '+lat.toFixed(4)+','+lng.toFixed(4));
+        }; 
+        r.readAsDataURL(file);
+      } else {
+        entries.push(base); 
+        localStorage.setItem('prospectEntries',JSON.stringify(entries)); 
+        render(); 
+        alert('✅ SAVED! '+category+'\nGPS: '+lat.toFixed(4)+','+lng.toFixed(4));
+      }
+    },()=>{alert('Turn ON GPS Location!')});
+  }
+
+  render();
+});
+</script>
+</body>
+</html>
